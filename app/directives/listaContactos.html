@@ -1,0 +1,24 @@
+<div class="table-responsive">
+    <table ng-show="listaContactos.length > 0" class="table">
+        <tr class="info">
+            <th></th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-class="{'selecionado negrito': contacto.selecionado}" ng-repeat="contacto in listaContactos | filter:pesquisar">
+            <td><input type="checkbox" ng-model="contacto.selecionado"></td>
+            <td>{{contacto.nome}}</td>
+            <td>{{contacto.telefone}}</td>
+            <td>{{contacto.email}}</td>
+            <td class="centralizeText">
+              <span ng-click="" class="glyphicon glyphicon-eye-open"></span>
+              <span ng-click="" class="glyphicon glyphicon-pencil"></span> 
+              <span ng-click="removeItem(contacto)" class="glyphicon glyphicon-trash"></span>
+            </td>  
+        </tr> 
+    </table>
+</div>
+
+
