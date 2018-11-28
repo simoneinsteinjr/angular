@@ -6,10 +6,9 @@ angular.module('contactos')
             return $http.get("/contactos");
         }
 
-        this.adicionarContacto = function (nomeContacto, telefoneContacto, emailContacto) {
-            $http.post("/adicionarContacto", { "nome": nomeContacto, "telefone": telefoneContacto, "email": emailContacto})
+        this.adicionarContacto = function (nomeContacto, telefoneContacto, emailContacto, operadoraContacto) {
+            $http.post("/adicionarContacto", { "nome": nomeContacto, "telefone": telefoneContacto, "email": emailContacto, "operadora": operadoraContacto})
         }
-
 
         this.removeItem = function (contacto) {
             $http.delete("/deleteContacto/" + contacto.id)

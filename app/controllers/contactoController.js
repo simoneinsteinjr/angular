@@ -8,11 +8,7 @@ myApp.controller('contactosController',['$scope', '$http', 'crudAPIService',  fu
   $scope.selecionado = "selecionado";
   $scope.negrito = "negrito";  
 
-//   $scope.isContactoSelecionado = function (contactos) {
-//     return contactos.some(function (contacto) {
-//         return contacto.selecionado;
-//     });
-// }
+  $scope.operadoras = ["Vodacom", "Mcel", "Movitel"];
 
   var url = "/contactos";
 
@@ -25,10 +21,12 @@ myApp.controller('contactosController',['$scope', '$http', 'crudAPIService',  fu
   }
 
   $scope.adicionarContacto = function () {
-    crudAPIService.adicionarContacto($scope.nomeContacto, $scope.telefoneContacto, $scope.emailContacto)
+    crudAPIService.adicionarContacto($scope.nomeContacto, $scope.telefoneContacto, $scope.emailContacto, $scope.operadoraContacto)
       $scope.nomeContacto = "";
       $scope.telefoneContacto = "";
       $scope.emailContacto = "";
+      $scope.operadoraContacto = "";
+      $scope.contactoForm.$setPristine(); 
       getContactos();
   }
 
