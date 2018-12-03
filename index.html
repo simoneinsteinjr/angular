@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  
   <div ng-controller="contactosController">
     <div class="jumbotron">
       <h4>{{message}} ({{listaContactos.length}})</h4>
@@ -27,6 +28,7 @@
         </select>
       </form>
 
+      <!-- Form validation -->
       <div ng-show="contactoForm.nome.$error.required && contactoForm.nome.$dirty" class="alert alert-danger">
         Preencha o nome!                         
       </div>
@@ -47,7 +49,9 @@
 
       <div ng-show="contactoForm.operadora.$invalid && contactoForm.operadora.$dirty" class="alert alert-danger">
           Selecione uma operadora!
-    s</div>
+      </div>
+      <!--/Form validation -->
+
       <button class="btn btn-primary btn-block" ng-click="adicionarContacto()" ng-disabled="contactoForm.$invalid">Adicionar Contacto</button>
     </div>
   </div>
